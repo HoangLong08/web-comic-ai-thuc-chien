@@ -30,18 +30,18 @@ export default function Hero() {
             />
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#8B0000]/80 via-[#8B0000]/40 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#8B0000] to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#8B0000]/90 via-[#8B0000]/50 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-t from-[#8B0000] to-transparent"></div>
 
             {/* CTA Buttons Overlay */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-6 z-10">
+            <div className="absolute bottom-4 md:bottom-8 lg:bottom-12 left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 z-10 w-full px-4 sm:w-auto">
               <button
                 onClick={() => setIsReaderOpen(true)}
-                className="group relative px-10 py-4 bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold text-lg tracking-wider rounded-lg shadow-2xl hover:shadow-yellow-500/50 transition-all duration-300 transform hover:scale-105"
+                className="group relative px-6 sm:px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold text-sm sm:text-base md:text-lg tracking-wider rounded-lg shadow-2xl hover:shadow-yellow-500/50 transition-all duration-300 transform hover:scale-105"
               >
-                <span className="flex items-center gap-3">
+                <span className="flex items-center justify-center gap-2 md:gap-3">
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5 md:w-6 md:h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -59,7 +59,7 @@ export default function Hero() {
 
               <a
                 href="#story"
-                className="px-10 py-4 border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-[#8B0000] font-bold text-lg tracking-wider rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+                className="px-6 sm:px-8 md:px-10 py-3 md:py-4 border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-[#8B0000] font-bold text-sm sm:text-base md:text-lg tracking-wider rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
               >
                 TÌM HIỂU THÊM
               </a>
@@ -67,9 +67,9 @@ export default function Hero() {
           </div>
 
           {/* Important Notice Banner */}
-          <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 text-white py-5 shadow-lg">
+          <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 text-white py-3 md:py-5 shadow-lg">
             <div className="max-w-6xl mx-auto px-4 text-center">
-              <p className="text-sm md:text-base tracking-wider font-medium">
+              <p className="text-xs sm:text-sm md:text-base tracking-wider font-medium">
                 ⚠ THÔNG BÁO: Tập 40 sẽ phát sóng muộn hơn 15 phút vào lúc 23:15
                 - 23:45 ngày 11/10 (Thứ Bảy)
               </p>

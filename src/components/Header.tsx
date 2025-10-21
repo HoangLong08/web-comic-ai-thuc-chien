@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const tvSeriesMenu = [
     "TRANG CHỦ",
@@ -38,80 +39,132 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed left-0 top-0 h-screen w-64 bg-gradient-to-b from-[#8B0000] to-[#4A0000] text-white z-50 flex flex-col shadow-2xl">
-      <div className="flex flex-col h-full overflow-y-auto">
-        {/* Logo Section */}
-        <div className="p-6 border-b border-yellow-600/30">
-          <h1 className="text-2xl font-bold tracking-wider text-yellow-400">
-            TRUYỆN TRANH AI
-          </h1>
-          <p className="text-sm mt-2 tracking-widest text-yellow-200">
-            Sáng tạo không giới hạn
-          </p>
-        </div>
-
-        {/* Navigation Menu */}
-        <nav className="flex-1 py-6">
-          {/* TV Series Section */}
-          <div className="mb-6">
-            <button
-              onClick={() => setActiveMenu(activeMenu === "tv" ? null : "tv")}
-              className="w-full px-6 py-3 text-left hover:bg-yellow-600/20 transition-colors text-sm tracking-widest font-semibold border-l-4 border-transparent hover:border-yellow-500"
-            >
-              MENU PHIM BỘ
-            </button>
-            {activeMenu === "tv" && (
-              <div className="mt-2 space-y-1 bg-black/20">
-                {tvSeriesMenu.map((item, index) => (
-                  <a
-                    key={index}
-                    href={`#${item
-                      .toLowerCase()
-                      .replace(/&/g, "-")
-                      .replace(/ /g, "-")}`}
-                    className="block px-8 py-2 text-xs hover:bg-yellow-600/30 transition-colors tracking-wider text-yellow-100 hover:text-yellow-400"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
+    <>
+      {/* Mobile Header */}
+      <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-gradient-to-r from-[#8B0000] to-[#4A0000] text-white z-50 flex items-center justify-between px-4 shadow-lg">
+        <h1 className="text-lg font-bold tracking-wider text-yellow-400">
+          TRUYỆN TRANH AI
+        </h1>
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="w-10 h-10 flex items-center justify-center"
+          aria-label="Toggle menu"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {isMobileMenuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
+          </svg>
+        </button>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/50 z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Desktop & Mobile Sidebar */}
+      <header
+        className={`fixed left-0 top-0 h-screen w-64 bg-gradient-to-b from-[#8B0000] to-[#4A0000] text-white z-50 flex flex-col shadow-2xl transition-transform duration-300 ${
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } lg:translate-x-0`}
+      >
+        <div className="flex flex-col h-full overflow-y-auto">
+          {/* Logo Section */}
+          <div className="p-6 border-b border-yellow-600/30">
+            <h1 className="text-2xl font-bold tracking-wider text-yellow-400">
+              TRUYỆN TRANH AI
+            </h1>
+            <p className="text-sm mt-2 tracking-widest text-yellow-200">
+              Sáng tạo không giới hạn
+            </p>
           </div>
 
-          {/* Portal Menu Section */}
-          <div>
-            <button
-              onClick={() =>
-                setActiveMenu(activeMenu === "portal" ? null : "portal")
-              }
-              className="w-full px-6 py-3 text-left hover:bg-yellow-600/20 transition-colors text-sm tracking-widest font-semibold border-l-4 border-transparent hover:border-yellow-500"
-            >
-              MENU CỔNG THÔNG TIN
-            </button>
-            {activeMenu === "portal" && (
-              <div className="mt-2 space-y-1 bg-black/20">
-                {portalMenu.map((item, index) => (
-                  <a
-                    key={index}
-                    href={`#${item.toLowerCase().replace(/ /g, "-")}`}
-                    className="block px-8 py-2 text-xs hover:bg-yellow-600/30 transition-colors tracking-wider text-yellow-100 hover:text-yellow-400"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-        </nav>
+          {/* Navigation Menu */}
+          <nav className="flex-1 py-6">
+            {/* TV Series Section */}
+            <div className="mb-6">
+              <button
+                onClick={() => setActiveMenu(activeMenu === "tv" ? null : "tv")}
+                className="w-full px-6 py-3 text-left hover:bg-yellow-600/20 transition-colors text-sm tracking-widest font-semibold border-l-4 border-transparent hover:border-yellow-500"
+              >
+                MENU PHIM BỘ
+              </button>
+              {activeMenu === "tv" && (
+                <div className="mt-2 space-y-1 bg-black/20">
+                  {tvSeriesMenu.map((item, index) => (
+                    <a
+                      key={index}
+                      href={`#${item
+                        .toLowerCase()
+                        .replace(/&/g, "-")
+                        .replace(/ /g, "-")}`}
+                      className="block px-8 py-2 text-xs hover:bg-yellow-600/30 transition-colors tracking-wider text-yellow-100 hover:text-yellow-400"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
 
-        {/* Footer Section */}
-        <div className="p-6 border-t border-yellow-600/30 bg-black/20">
-          <div className="text-xs text-yellow-200 space-y-2">
-            <p>© 2024 Truyện Tranh AI</p>
-            <p className="text-yellow-400">Sản phẩm Việt Nam</p>
+            {/* Portal Menu Section */}
+            <div>
+              <button
+                onClick={() =>
+                  setActiveMenu(activeMenu === "portal" ? null : "portal")
+                }
+                className="w-full px-6 py-3 text-left hover:bg-yellow-600/20 transition-colors text-sm tracking-widest font-semibold border-l-4 border-transparent hover:border-yellow-500"
+              >
+                MENU CỔNG THÔNG TIN
+              </button>
+              {activeMenu === "portal" && (
+                <div className="mt-2 space-y-1 bg-black/20">
+                  {portalMenu.map((item, index) => (
+                    <a
+                      key={index}
+                      href={`#${item.toLowerCase().replace(/ /g, "-")}`}
+                      className="block px-8 py-2 text-xs hover:bg-yellow-600/30 transition-colors tracking-wider text-yellow-100 hover:text-yellow-400"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* Footer Section */}
+          <div className="p-6 border-t border-yellow-600/30 bg-black/20">
+            <div className="text-xs text-yellow-200 space-y-2">
+              <p>© 2024 Truyện Tranh AI</p>
+              <p className="text-yellow-400">Sản phẩm Việt Nam</p>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

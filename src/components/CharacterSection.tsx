@@ -51,31 +51,33 @@ export default function CharacterSection() {
   return (
     <section
       id="character"
-      className="min-h-screen bg-gradient-to-b from-[#8B0000] to-[#4A0000] text-white py-20 px-8"
+      className="min-h-screen bg-gradient-to-b from-[#8B0000] to-[#4A0000] text-white py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8"
     >
       <div className="max-w-[1600px] mx-auto">
-        <h2 className="text-[80px] font-bold text-center mb-20 font-oswald tracking-[0.2em] leading-none text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+        <h2 className="text-4xl md:text-6xl lg:text-[80px] font-bold text-center mb-12 md:mb-16 lg:mb-20 font-oswald tracking-[0.2em] leading-none text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
           NHÂN VẬT
         </h2>
 
         {/* Character Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6 mb-12 md:mb-16">
           {characters.map((char, index) => (
             <button
               key={char.id}
               onClick={() => setActiveTab(index)}
               className={`relative aspect-[3/4] overflow-hidden transition-all duration-300 rounded-lg ${
                 activeTab === index
-                  ? "opacity-100 ring-4 ring-yellow-500 shadow-2xl"
+                  ? "opacity-100 ring-2 md:ring-4 ring-yellow-500 shadow-2xl"
                   : "opacity-50 hover:opacity-75"
               }`}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-left">
-                <p className="text-white text-lg font-bold tracking-wider">
+              <div className="absolute bottom-0 left-0 right-0 p-2 md:p-4 text-left">
+                <p className="text-white text-sm md:text-lg font-bold tracking-wider">
                   {char.nameVi}
                 </p>
-                <p className="text-yellow-400 text-sm mt-1">{char.nameEn}</p>
+                <p className="text-yellow-400 text-xs md:text-sm mt-1">
+                  {char.nameEn}
+                </p>
               </div>
               <img
                 src={char.image}
@@ -87,7 +89,7 @@ export default function CharacterSection() {
         </div>
 
         {/* Character Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-start">
           <div className="lg:col-span-2 flex justify-center">
             <div className="w-full max-w-md aspect-[3/4] bg-gray-900 rounded-lg overflow-hidden relative shadow-2xl ring-2 ring-yellow-600/50">
               <img
@@ -98,26 +100,26 @@ export default function CharacterSection() {
             </div>
           </div>
 
-          <div className="lg:col-span-3 space-y-8">
+          <div className="lg:col-span-3 space-y-6 md:space-y-8">
             <div>
-              <h3 className="text-5xl font-bold mb-3 tracking-wide text-yellow-400">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 tracking-wide text-yellow-400">
                 {characters[activeTab].nameVi}
               </h3>
-              <p className="text-yellow-200 text-2xl tracking-wider">
+              <p className="text-yellow-200 text-xl md:text-2xl tracking-wider">
                 {characters[activeTab].nameEn}
               </p>
             </div>
 
             {characters[activeTab].cv && (
-              <div className="inline-block bg-gradient-to-r from-yellow-600 to-yellow-500 px-6 py-2 rounded shadow-lg">
-                <p className="text-white text-lg font-medium">
+              <div className="inline-block bg-gradient-to-r from-yellow-600 to-yellow-500 px-4 md:px-6 py-2 rounded shadow-lg">
+                <p className="text-white text-base md:text-lg font-medium">
                   Lồng tiếng: {characters[activeTab].cv}
                 </p>
               </div>
             )}
 
-            <div className="border-l-4 border-yellow-500 pl-8 bg-black/30 p-6 rounded-r-lg">
-              <p className="text-white leading-relaxed text-xl tracking-wide whitespace-pre-line">
+            <div className="border-l-4 border-yellow-500 pl-4 md:pl-8 bg-black/30 p-4 md:p-6 rounded-r-lg">
+              <p className="text-white leading-relaxed text-base md:text-lg lg:text-xl tracking-wide whitespace-pre-line">
                 {characters[activeTab].description}
               </p>
             </div>

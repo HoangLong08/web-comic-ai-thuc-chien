@@ -11,19 +11,22 @@ export default function StorySection() {
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold mb-8 text-[#8B0000] leading-relaxed">
-              Trong thời đại mà các quốc gia đang bí mật tham gia cuộc chiến thông tin khốc liệt.
+              Trong thời đại mà các quốc gia đang bí mật tham gia cuộc chiến
+              thông tin khốc liệt.
             </h3>
           </div>
 
           <div className="space-y-6 text-lg md:text-xl leading-relaxed text-gray-800">
             <p>
-              Đông Quốc (Ostania) và Tây Quốc (Westalis) đã ở trong tình trạng chiến tranh lạnh kéo dài hơn mười năm.
+              Đông Quốc (Ostania) và Tây Quốc (Westalis) đã ở trong tình trạng
+              chiến tranh lạnh kéo dài hơn mười năm.
             </p>
 
             <p>
-              Điệp viên hàng đầu của Cục Tình báo Tây Quốc, được biết đến với mật danh 〈Hoàng Hôn〉,
-              được giao một nhiệm vụ tối mật để theo dõi động thái của Donovan Desmond - nhân vật nguy hiểm đe dọa hòa bình Đông-Tây,
-              Chủ tịch Đảng Thống nhất Quốc gia Đông Quốc.
+              Điệp viên hàng đầu của Cục Tình báo Tây Quốc, được biết đến với
+              mật danh 〈Hoàng Hôn〉, được giao một nhiệm vụ tối mật để theo dõi
+              động thái của Donovan Desmond - nhân vật nguy hiểm đe dọa hòa bình
+              Đông-Tây, Chủ tịch Đảng Thống nhất Quốc gia Đông Quốc.
             </p>
 
             <p className="text-2xl font-bold text-center my-8 text-[#8B0000]">
@@ -31,20 +34,24 @@ export default function StorySection() {
             </p>
 
             <p>
-              Nội dung nhiệm vụ: "Trong vòng một tuần, hãy lập gia đình và xâm nhập vào buổi gặp mặt phụ huynh của trường danh giá mà con trai Desmond đang theo học".
+              Nội dung nhiệm vụ: &quot;Trong vòng một tuần, hãy lập gia đình và
+              xâm nhập vào buổi gặp mặt phụ huynh của trường danh giá mà con
+              trai Desmond đang theo học&quot;.
             </p>
 
             <p className="font-bold">
-              〈Hoàng Hôn〉 đóng vai bác sĩ tâm thần Loid Forger và bắt đầu lập gia đình.
+              〈Hoàng Hôn〉 đóng vai bác sĩ tâm thần Loid Forger và bắt đầu lập
+              gia đình.
             </p>
 
             <p className="font-bold">
-              Nhưng cô con gái mà anh gặp - Anya, lại là một siêu năng lực đọc được suy nghĩ,
-              và người vợ - Yor, lại là một sát thủ!
+              Nhưng cô con gái mà anh gặp - Anya, lại là một siêu năng lực đọc
+              được suy nghĩ, và người vợ - Yor, lại là một sát thủ!
             </p>
 
             <p className="text-center text-xl mt-12">
-              Một bộ phim hài gia đình về gia đình giả tạo che giấu thân phận thật,
+              Một bộ phim hài gia đình về gia đình giả tạo che giấu thân phận
+              thật,
               <br />
               cùng nhau vượt qua khó khăn trong thi đầu vào, nấu ăn và mua sắm.
             </p>
